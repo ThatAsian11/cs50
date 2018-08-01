@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered" style="width:100%">
+      <tr>
+          <th>Symbol</th>
+          {% for x in stocks %}
+          <td>{{ x.symbol }}</td>
+          {% endfor %}
+          <td>CASH</td>
+      </tr>
+      <tr>
+          <th>Shares</th>
+          {% for y in stocks %}
+          <td>{{ y.shares }}</td>
+          {% endfor %}
+          <td>   -     </td>
+      </tr>
+      <tr>
+          <th>Price</th>
+          {% for z in stocks %}
+          <td>{{ z.price }}</td>
+          {% endfor %}
+          <td>   -     </td>
+      </tr>
+      <tr>
+        <th>TOTAL</th>
+        {% for t in total %}
+        <td>{{ t.total }}</td>
+        {% endfor %}
+        <td>{{ cash }}</td>
+        <td><strong>{{ total_assets }}</strong></td>
+      </tr>
+    </table>
+{% endblock %}

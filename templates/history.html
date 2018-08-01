@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered" style="width:100%">
+      <tr>
+          <th>Symbol</th>
+          {% for x in history %}
+          <td>{{ x.symbol }}</td>
+          {% endfor %}
+      </tr>
+      <tr>
+          <th>Shares</th>
+          {% for y in history %}
+          <td>{{ y.shares }}</td>
+          {% endfor %}
+      </tr>
+      <tr>
+          <th>Price</th>
+          {% for z in history %}
+          <td>{{ z.price }}</td>
+          {% endfor %}
+      </tr>
+      <tr>
+        <th>Transacted</th>
+        {% for t in history %}
+        <td>{{ t.date }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+{% endblock %}
