@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Explore
+{% endblock %}
+
+{% block main %}
+    <form action="/explore" method="POST" value="explore">
+        <legend>See the Astronomy Picture of the Day on the date entered</legend>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Desired Date</label>
+          <input value="{{ today }}" autocomplete="off" autofocus class="form-control" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="YYYY-MM-DD" type="text" name="date" maxlength="10">
+          <small id="emailHelp" class="form-text text-muted">A date in YYYY-MM-DD format between 1995-06-16 and today</small>
+        </div>
+        <button type="submit" class="btn btn-success btn-lg" value="explore" name="explore">Explore!</button>
+        <button type="submit" class="btn btn-info btn-lg" value="random" name="random">Random</button>
+    </form>
+    
+{% endblock %}

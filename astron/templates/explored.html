@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Explored
+{% endblock %}
+
+{% block main %}
+    <div class="card mb-3">
+      <h3 class="card-header">{{ images.title }}</h3>
+      <div class="card-body">
+        <h5 class="card-title">{{ images.date }}</h5>
+      </div>
+      <img style="height: 800px; width: auto; display: block;" src="{{ images.hdurl }}"/>
+      <div class="card-body">
+        <p class="card-text">{{ images.explanation }}</p>
+      </div>
+    </div>
+{% endblock %}
