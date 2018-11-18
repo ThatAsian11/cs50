@@ -1,6 +1,7 @@
 # Project 0
 
 Web Programming with Python and JavaScript
+
 Modified a previously made simple website to fit the requirements of this project. Requirements listed below:
 
 Your website must contain at least four different .html pages, and it should be possible to get from any page on your website to any other page by following one or more hyperlinks.
