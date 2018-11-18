@@ -1,0 +1,81 @@
+$bg: #a4a4a4;
+%backgrounds {
+  background-color: $bg;
+}
+#home {
+  background-image: url("https://bit.ly/2MIHjlQ");
+  @extend %backgrounds;
+}
+#aspirations {
+  background-image: url("https://bit.ly/2oEubiW");
+  @extend %backgrounds;
+}
+#interests {
+  background-image: url("https://bit.ly/2Q1po7M");
+  @extend %backgrounds;
+}
+#about {
+  background-image: url("https://bit.ly/2Q2cBSD");
+  @extend %backgrounds;
+}
+  .light-text-head {
+    padding-top: 20px;
+    font-family: arial, sans-serif;
+    font-size: 8vw;
+    text-align: center;
+    min-height: 10vh;
+    justify-content: center;
+    @media only screen and (max-width: 600px) {
+      color: black;
+    }
+  }
+  .light-text-body {
+    padding-top: 50px;
+    font-family: arial, sans-serif;
+    font-size: 4vw;
+    text-align: center;
+    min-height: 10vh;
+    @media only screen and (max-width: 600px) {
+      color: black;
+    }
+  }
+  .jumbotron {
+    padding-top: 70px;
+    opacity: 0.8;
+  }
+  /* I did something weird accidentally with the grid-teplate-column property and it ended up being what I wanted,
+     but I have no idea what it is doing  */
+  .container {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto au1frto;
+    grid-column-gap: 2em;
+    padding: 3em;
+    opacity: 0.9;
+  }
+.intro {
+  background-color: white;
+  margin: 10px;
+  border-radius: 3px;
+  padding-bottom: 10px;
+  opacity: 0.7;
+}
+div {
+  .title {
+    margin-top: 140px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 2px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 2vw;
+    background-color: white;
+    float: left;
+  }
+  .table {
+    min-height: 10vh;
+  }
+}
+hr {
+  border: 1px solid white;
+}
