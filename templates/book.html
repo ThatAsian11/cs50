@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+<center>
+    <h1><i>{{ book_data['title'] }}</i></h1><br>
+    <h3>By {{ book_data['author'] }}</h3><br>
+    <h5 class="text-muted">Published in {{ book_data['year'] }}</h5><br>
+    <p><small>ISBN: {{ book_data['isbn'] }}</small></p>
+    <br>
+    <h4 class="text-success">Average Goodreads rating: {{ book_data['average_rating'] }}/5</h4>
+    <h4 class="text-info">Number of ratings: {{ book_data['number_ratings'] }}</h4>
+    <br>
+    <hr>
+    <form action="/book/{{ book_data['id'] }}" method="post">
+      <div class="form-group">
+
+        <label for="rating">Rate this book!</label>
+        <select class="form-control" name="rating" id="rating">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+
+        <label for="review">Leave a review!</label>
+        <textarea class="form-control" rows="3" autocomplete="off" name="review_text" id="review">
+        </textarea>
+        <br>
+        <button class="btn btn-outline-success" type="submit">Submit</button>
+
+      </div>
+    </form>
+    <br>
+    <legend>User reviews:</legend>
+    </center>
+    {% if review_rows|length > 0 %}
+      <ul class="list-group">
+        {% for review in review_rows %}
+          <li class="list-group-item">
+            Reviewer ID: {{ review['user_id'] }}<br>
+            Rating: {{ review['rating'] }}<br>
+            {{ review['review'] }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h5>Be the first to leave a review!</h5>
+    {% endif %}
+</center>
+{% endblock %}
