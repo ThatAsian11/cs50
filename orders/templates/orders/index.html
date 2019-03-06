@@ -1,0 +1,285 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Pinnochio's Pizza{% endblock %}
+
+{% block body %}
+{% if confirmation %}
+<div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Confirmed!</strong> Your order has been placed and we are cooking it up right now!
+</div>
+{% endif %}
+<h3>Our Menu</h3>
+<div class="menu_table">
+<table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="3">Regular Pizza</th>
+	      </tr>
+	      <tr class="table-light">
+		<td></td>
+		<td>Small($)</td>
+		<td>Large($)</td>
+	      </tr>	      <tr class="table-light">
+		<td>Cheese</td>
+		<td>12.20</td>
+		<td>17.45</td>
+	      </tr>	      <tr class="table-light">
+		<td>1 topping</td>
+		<td>13.20</td>
+		<td>19.45</td>
+	      </tr>	      <tr class="table-light">
+		<td>2 toppings</td>
+		<td>14.70</td>
+		<td>21.45</td>
+	      </tr>	      <tr class="table-light">
+		<td>3 toppings</td>
+		<td>15.70</td>
+		<td>23.45</td>
+	      </tr>	      <tr class="table-light">
+		<td>Special</td>
+		<td>17.25</td>
+		<td>25.45</td>
+	      </tr>	    </tbody>
+	  </table>
+    <table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="3">Sicilian Pizza</th>
+	      </tr>
+	      <tr class="table-light">
+		<td></td>
+		<td>Small($)</td>
+		<td>Large($)</td>
+	      </tr>	      <tr class="table-light">
+		<td>Cheese</td>
+		<td>23.45</td>
+		<td>37.70</td>
+	      </tr>	      <tr class="table-light">
+		<td>1 item</td>
+		<td>25.45</td>
+		<td>39.70</td>
+	      </tr>	      <tr class="table-light">
+		<td>2 items</td>
+		<td>27.45</td>
+		<td>41.70</td>
+	      </tr>	      <tr class="table-light">
+		<td>3 items</td>
+		<td>28.45</td>
+		<td>43.70</td>
+	      </tr>	      <tr class="table-light">
+		<td>Special</td>
+		<td>29.45</td>
+		<td>44.70</td>
+	      </tr>	    </tbody>
+	  </table>
+    <table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="2">Toppings</th>
+	      </tr>	      <tr class="table-light">
+		<td>Pepperoni</td>
+	      </tr>	      <tr class="table-light">
+		<td>Sausage</td>
+                     </tr>	      <tr class="table-light">
+		<td>Mushrooms</td>
+                     </tr>	      <tr class="table-light">
+		<td>Onions</td>
+	      </tr>	      <tr class="table-light">
+		<td>Ham</td>
+	      </tr>	      <tr class="table-light">
+		<td>Canadian Bacon</td>
+	      </tr>	      <tr class="table-light">
+		<td>Pineapple</td>
+	      </tr>	      <tr class="table-light">
+		<td>Eggplant</td>
+	      </tr>	      <tr class="table-light">
+		<td>Tomato &amp; Basil</td>
+	      </tr>	      <tr class="table-light">
+		<td>Green Peppers</td>
+	      </tr>	      <tr class="table-light">
+		<td>Hamburger</td>
+	      </tr>	      <tr class="table-light">
+		<td>Spinach</td>
+	      </tr>	      <tr class="table-light">
+		<td>Artichoke</td>
+                     </tr>	      <tr class="table-light">
+		<td>Buffalo Chicken</td>
+                      </tr>	      <tr class="table-light">
+		<td>Barbecue Chicken</td>
+	      </tr>	      <tr class="table-light">
+		<td>Anchovies</td>
+	      </tr>	      <tr class="table-light">
+		<td>Black Olives</td>
+	      </tr>	      <tr class="table-light">
+		<td>Fresh Garlic</td>
+	      </tr>	      <tr class="table-light">
+		<td>Zucchini</td>
+	      </tr>	    </tbody>
+	  </table>
+    <table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="3">Subs</th>
+	      </tr>
+	      <tr class="table-light">
+		<td></td>
+		<td>Small($)</td>
+		<td>Large($)</td>
+	      </tr>	      <tr class="table-light">
+		<td>Cheese</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Italian</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Ham + Cheese</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Meatball</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Tuna</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Turkey</td>
+		<td>7.50</td>
+		<td>8.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Chicken Parmigiana</td>
+		<td>7.50</td>
+		<td>8.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Eggplant Parmigiana</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Steak</td>
+		<td>6.50</td>
+		<td>7.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Steak + Cheese</td>
+		<td>6.95</td>
+		<td>8.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>+ Mushrooms</td>
+		<td>+0.50</td>
+		<td>+0.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>+ Green Peppers</td>
+		<td>+0.50</td>
+		<td>+0.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>+ Onions</td>
+		<td>+0.50</td>
+		<td>+0.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Sausage, Peppers & Onions</td>
+		<td></td>
+		<td>8.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Hamburger</td>
+		<td>4.60</td>
+		<td>6.95</td>
+	      </tr>	      <tr class="table-light">
+		<td>Cheeseburger</td>
+		<td>5.10</td>
+		<td>7.45</td>
+	      </tr>	      <tr class="table-light">
+		<td>Fried Chicken</td>
+		<td>6.95</td>
+		<td>8.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Veggie</td>
+		<td>6.95</td>
+		<td>8.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Extra Cheese on any sub</td>
+		<td>+0.50</td>
+		<td>+0.50</td>
+	      </tr>	    </tbody>
+	  </table>
+    <table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="3">Pasta</th>
+	      </tr>
+	      <tr class="table-light">
+		<td></td>
+		<td>$</td>
+	      </tr>	      <tr class="table-light">
+		<td>Baked Ziti w/Mozzarella</td>
+		<td>6.50</td>
+	      </tr>	      <tr class="table-light">
+		<td>Baked Ziti w/Meatballs</td>
+		<td>8.75</td>
+	      </tr>	      <tr class="table-light">
+		<td>Baked Ziti w/Chicken</td>
+		<td>9.75</td>
+	      </tr>	    </tbody>
+	  </table>
+    <table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="3">Salads</th>
+	      </tr>
+	      <tr class="table-light">
+		<td></td>
+		<td>$</td>
+	      </tr>	      <tr class="table-light">
+		<td>Garden Salad</td>
+		<td>6.25</td>
+	      </tr>	      <tr class="table-light">
+		<td>Greek Salad</td>
+		<td>8.25</td>
+	      </tr>	      <tr class="table-light">
+		<td>Antipasto</td>
+		<td>8.25</td>
+	      </tr>	      <tr class="table-light">
+		<td>Salad w/Tuna</td>
+		<td>8.25</td>
+	      </tr>	    </tbody>
+	  </table>
+    <table class="table table-hover">
+	    <tbody>
+	      <tr class="table-light">
+		<th colspan="3">Dinner Platters</th>
+	      </tr>
+	      <tr class="table-light">
+		<td></td>
+		<td></td>
+	      </tr>	      <tr class="table-light">
+		<td>Garden Salad</td>
+		<td>Small  $35.00  Large  $60.00</td>
+	      </tr>	      <tr class="table-light">
+		<td>Greek Salad</td>
+		<td>Small $45.00  Large  $70.00</td>
+	      </tr>	      <tr class="table-light">
+		<td>Antipasto</td>
+		<td>Small $45.00 Large $70.00</td>
+	      </tr>	      <tr class="table-light">
+		<td>Baked Ziti</td>
+		<td>Small $35.00 Large $60.00</td>
+	      </tr>	      <tr class="table-light">
+		<td>Meatball Parm</td>
+		<td>Small $45.00 Large $70.00</td>
+	      </tr>	      <tr class="table-light">
+		<td>Chicken Parm</td>
+		<td>Small $45.00 Large $80.00</td>
+	      </tr>	    </tbody>
+	  </table>
+      </td>
+
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+{% endblock %}
