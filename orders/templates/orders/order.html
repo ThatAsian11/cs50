@@ -1,0 +1,136 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Order{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1>Logged in as <em style="color:white">{{ user }}</em></h1>
+<div class="order_form">
+    <div><h4>Pizza</h4>
+      <form action="{% url 'process' %}" method="post" id="pizza">
+        {% csrf_token %}
+        <fieldset>
+          <div class="form-group">
+            <label for="exampleSelect1">Select a Pizza</label>
+            <select name="pizza_selection" class="form-control" id="pizza_selection">
+              {% for pizza in pizzas %}
+              <option value="{{ pizza.id }}">{{ pizza.type }} crust: {{ pizza.name }}  ||  Small: ${{ pizza.small }}, Large: ${{ pizza.large }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend>Size</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="size_choice" id="optionsRadios1" value="small" checked="">Small<br>
+              <input type="radio" class="form-check-input" name="size_choice" id="optionsRadios1" value="large">Large<br>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+              <legend>Select any toppings you want</legend>
+              <div class="form-check">
+                <label class="form-check-label">
+                  {% for topping in toppings %}
+                  <input id="topping_selection" class="form-check-input" type="checkbox" name="topping_selection" value="{{ topping.id }}">{{ topping.name }}<br>
+                  {% endfor %}
+                </label>
+              </div>
+        </fieldset>
+        <button type="submit" class="btn btn-success">Add to cart</button>
+        </form>
+    </div>
+    <hr>
+    <div><h4>Subs</h4>
+      <form action="{% url 'process' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+          <div class="form-group">
+            <label for="exampleSelect1">Select a Sub</label>
+            <select name="sub_selection" class="form-control" id="sub_selection">
+              {% for sub in subs %}
+              <option value="{{ sub.id }}">{{ sub.name }} || Small: ${{ sub.small }}, Large: ${{ sub.large }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend>Size</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="size_choice" id="sub_size_choice_small" value="small" checked="">Small<br>
+              <input type="radio" class="form-check-input" name="size_choice" id="sub_size_choice_large" value="large">Large<br>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <legend>Select a topping you want</legend>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="subtop_selection" id="optionsRadios1" value="" checked="">No toppings<br>
+                {% for subtop in subtops %}
+                <input type="radio" class="form-check-input" name="subtop_selection" id="optionsRadios1" value="{{ subtop.id }}">{{ subtop.name }}<br>
+                {% endfor %}
+              </label>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend>Extra cheese?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="extra_cheese" id="optionsRadios1" value="false" checked="">No<br>
+              <input type="radio" class="form-check-input" name="extra_cheese" id="optionsRadios1" value="true">Yes<br>
+            </label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn-success">Add to cart</button>
+        </form>
+    </div>
+    <hr>
+    <div><h4>Pasta and Salads</h4>
+      <form action="{% url 'process' %}" method="post">
+        {% csrf_token %}
+      <fieldset>
+        <div class="form-group">
+          <label for="exampleSelect1">Select a Pasta or Salad</label>
+          <select name="item_selection" class="form-control" id="exampleSelect1">
+            {% for item in items %}
+            <option value="{{ item.id }}">{{ item.name }} || ${{ item.price }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Add to cart</button>
+      </fieldset>
+      </form>
+    </div>
+    <hr>
+    <div><h4>Dinner Platters</h4>
+      <form action="{% url 'process' %}" method="post">
+        {% csrf_token %}
+      <fieldset>
+        <div class="form-group">
+          <label for="exampleSelect1">Select a Dinner Platter</label>
+          <select name="platter_selection" class="form-control" id="exampleSelect1">
+            {% for platter in platters %}
+            <option value="{{ platter.id }}">{{ platter.name }} || Small: ${{ platter.small }}, Large: ${{ platter.large }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+      </fieldset>
+      <fieldset class="form-group">
+        <legend>Size</legend>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="size_choice" id="optionsRadios1" value="small" checked="">Small<br>
+            <input type="radio" class="form-check-input" name="size_choice" id="optionsRadios1" value="large">Large<br>
+          </label>
+        </div>
+      </fieldset>
+      <button type="submit" class="btn btn-success">Add to cart</button>
+      </form>
+    </div>
+</div>
+</div>
+{% endblock %}
