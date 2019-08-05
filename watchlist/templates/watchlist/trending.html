@@ -1,0 +1,56 @@
+{% extends "watchlist/base.html" %}
+
+{% block title %}Trending{% endblock %}
+
+{% block body %}
+<div class="bgimg-2">
+  <div class="form_header">
+  <span class="border">Trending</span>
+  <hr>
+  <form method="post" action="{% url 'trending' %}">
+    {% csrf_token %}
+      <button type="submit" class="btn btn-dark btn-lg" value="movie" name="trend">Movies</button>
+      <button type="submit" class="btn btn-dark btn-lg" value="tv" name="trend">TV Shows</button>
+  </form>
+  </div>
+</div>
+<div class="container" style="opacity:1; visibility:hidden" id="trending_container">
+  <div class="card-columns">
+    {% for item in items %}
+    <div class="card">
+    <img class="card-img-top" src="https://image.tmdb.org/t/p/w342/{{ item.poster_path }}" alt="{{ item.original_title }}">
+    <div class="card-body">
+    {% if movie %}
+    <h5 class="card-title">{{ item.title }}</h5>
+    {% else %}
+      <h5 class="card-title">{{ item.name }}</h5>
+    {% endif %}
+    <p class="card-text">{{ item.overview }}</p>
+    {% if movie %}
+    <p class="card-text"><small class="text-muted">{{ item.release_date }}</small></p>
+    {% else %}
+    <p class="card-text"><small class="text-muted">First Aired: {{ item.first_air_date }}</small></p>
+    {% endif %}
+    <form method="post" action="{% url 'content' %}">
+    {% csrf_token %}
+    {% if movie %}
+    <input type="hidden" value="{{ item.id }}" name="content_id"/>
+    <button type="sumbit" class="btn btn-primary btn-sm" name="content" value="movie">More info</button>
+    {% else %}
+    <input type="hidden" value="{{ item.id }}" name="content_id"/>
+    <button type="sumbit" class="btn btn-primary btn-sm" name="content" value="tv">More info</button>
+    {% endif %}
+    </form>
+    </div>
+    </div>
+    {% empty %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Not found</h5>
+        <p class="card-text">The response took too long, please reload</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

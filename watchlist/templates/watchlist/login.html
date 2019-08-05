@@ -1,0 +1,32 @@
+{% extends "watchlist/base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="bgimg-1">
+  <div class="form_header">
+    <span class="border">Log in</span>
+    <hr>
+    <div class="container" id="input_form">
+      <div class="log_form">
+      {% if message %}
+      <p>
+        {{ message }}
+      </p>
+      {% endif %}
+      <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+        <fieldset>
+        <div class="form-group">
+          <input class="form-control form-control-lg search_query" name="username" type="text" placeholder="Username" required autofocus/>
+          <input class="form-control form-control-lg search_query" name="password" type="password" placeholder="Password" required/>
+          <button type="submit" class="btn btn-outline-secondary btn-lg">Login</button>
+        </div>
+        </fieldset>
+      </form>
+      <p>Don't have an account? <a href="{% url 'register' %}">Register</a> here</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

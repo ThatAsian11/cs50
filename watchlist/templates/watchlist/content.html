@@ -1,0 +1,68 @@
+{% extends "watchlist/base.html" %}
+
+{% block title %}{{ items.title }}{% endblock %}
+
+{% block body %}
+<style>
+.backdrop {
+  background-image: url("https://image.tmdb.org/t/p/w1280/{{ items.backdrop_path }}");
+}
+</style>
+<div class="container backdrop" style="min-height:90vh; position: relative;">
+  <div id="content_data">
+  <img class="card-img-top poster" src="https://image.tmdb.org/t/p/w342/{{ items.poster_path }}">
+  </div>
+  <div id="content_info" style="position: relative">
+    <div class="container">
+      {% if items.title %}
+        <h1><strong>{{ items.title }}</strong></h1>
+        <p>{{ items.overview }}</p>
+        <p>Released: {{ items.release_date }}</p>
+        <p>Run time: {{ items.runtime }} minutes</p>
+        <p>Rating: {{ items.vote_average }}/10</p>
+        <p><small>
+        {% for i in items.genres %}
+        {{ i.name }} |
+        {% endfor %}
+        </small></p>
+      {% else %}
+        <h1><strong>{{ items.name }}</strong></h1><span class="badge badge-pill badge-info">{{ items.status }}</span>
+        <p>{{ items.overview }}</p>
+        <p>Number of Seasons: {{ items.number_of_seasons }}</p>
+        <p>First Aired: {{ items.first_air_date }}</p>
+        <p>Last Aired: {{ items.last_air_date }}</p>
+        <p>Run time: {{ items.episode_run_time }} minutes</p>
+        <p>Created by:
+          {% for i in items.created_by %}
+          {{ i.name }} |
+          {% endfor %}
+        </p>
+        <p>Rating: {{ items.vote_average }}/10</p>
+        <p><small>
+        {% for i in items.genres %}
+        {{ i.name }} |
+        {% endfor %}
+        </small></p>
+      {% endif %}
+      {% if added %}
+      <button type="button" class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="top" title="Already added to watchlist"><i class="fas fa-check"></i>
+</button>
+      {% else %}
+      <form method="post" action="{% url 'watchlist' %}">
+      {% csrf_token %}
+      <input type="hidden" value="{{ items.id }}" name="content_id"/>
+      {% if items.title %}
+      <input type="hidden" value="{{ items.title }}" name="content_title"/>
+      <input type="hidden" value="movie" name="content_type"/>
+      {% else %}
+      <input type="hidden" value="{{ items.name }}" name="content_title"/>
+      <input type="hidden" value="tv" name="content_type"/>
+      {% endif %}
+      <button type="sumbit" class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="top" title="Add to watchlist"><i class="fas fa-plus"></i>
+</button>
+      </form>
+      {% endif %}
+      </div>
+  </div>
+</div>
+{% endblock %}
