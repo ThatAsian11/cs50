@@ -1,0 +1,32 @@
+{% extends "watchlist/base.html" %}
+
+{% block title %}Watchlist{% endblock %}
+
+{% block body %}
+<div class="bgimg-4">
+  <div class="caption">
+  <span class="border">Watchlist</span>
+  </div>
+</div>
+<div class="container">
+  <ul class="list-group">
+    {% for item in items %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">{{ item.title }}
+      {% if item.watched %}
+      <button type="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="Watched"><i class="fas fa-check"></i></button>
+      {% else %}
+      <form method="post" action="{% url 'index' %}">
+      {% csrf_token %}
+      <input type="hidden" value="{{ item.content_id }}" name="content_id"/>
+      <button type="submit" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Mark as watched">
+      <i class="fas fa-circle"></i>
+      </button>
+      </form>
+      {% endif %}
+    </li>
+    {% empty %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">Nothing added yet</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

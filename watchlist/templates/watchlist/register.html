@@ -1,0 +1,31 @@
+{% extends "watchlist/base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="bgimg-1">
+<div class="container" id="input_form">
+  <h1>Sign up</h1>
+    <form method="post">
+      {% csrf_token %}
+      <fieldset>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {% for field in form %}
+            <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+            </p>
+            {% endfor %}
+        {% endfor %}
+        <button type="submit" class="btn btn-danger">Sign up</button>
+        </div>
+        </div>
+      </fieldset>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Log in</a> here</p>
+</div>
+</div>
+{% endblock %}

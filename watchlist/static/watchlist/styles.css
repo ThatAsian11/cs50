@@ -1,0 +1,211 @@
+body, html {
+  background-color: #333241;
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #5e5e5e;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+  position: relative;
+  opacity: 0.85;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("images/efrgTo3.jpg");
+  min-height: 92vh;
+}
+
+.bgimg-2 {
+  background-image: url("images/the_old_dragon_god_by_jjcanvas-d7xkglc.jpg");
+  min-height: 200px;
+}
+
+.bgimg-3 {
+  background-image: url("images/pXVjBpL.jpg");
+  min-height: 91.5vh;
+}
+.bgimg-4 {
+  background-image: url("images/TyoWhkZ.jpg");
+  min-height: 35vh;
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.form_header {
+  position: absolute;
+  left: 0;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: transparent;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+.form_header span.border {
+  border: 1px solid black;
+  background-color: transparent;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+.container {
+  border-radius: 2px;
+  opacity:0.9;
+  padding:20px;
+  background-color: #d7d5d5;
+}
+.poster {
+  border-radius: 5px;
+}
+#content_data {
+  float: left;
+  position: absolute;
+  height: 80%;
+  width: 20vw;
+  overflow: hidden;
+  margin: 5px;
+}
+#content_info {
+  float: right;
+  margin-left: 30%;
+  height:80%;
+  margin: 5px;
+  width: 50vw;
+  overflow: hidden;
+}
+#badge_hover {
+  transition: all 350ms ease-in-out;
+}
+#badge_hover:hover {
+  transform: scale(1.04);
+}
+.search_query {
+  padding: 10px;
+  margin: 10px;
+}
+/* The animation code */
+@keyframes show {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes form {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: rotateX(0deg);
+  }
+}
+#trending_container {
+  animation-name: show;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+#content_container {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+#input_form {
+  width: 25vw;
+  animation-name: form;
+  animation-duration: 1s;
+}
+
+/* Turn off parallax scrolling for tablets and phones, and change layout for small screens */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    background-attachment: scroll;
+  }
+  .caption span.border {
+    background-color: #333241;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+  .form_header span.border {
+    border: 1px solid black;
+    background-color:#333241;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+
+  #input_form {
+    width: 90vw;
+    animation-name: form;
+    animation-duration: 1s;
+  }
+}
+
+/* Turn off parallax scrolling for tablets and phones, and change layout for small screens */
+@media only screen and (max-device-width: 450px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    background-attachment: scroll;
+  }
+  .caption span.border {
+    background-color: #333241;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+  .form_header span.border {
+    border: 1px solid black;
+    background-color:#333241;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+  #content_data {
+    align-content: center;
+    text-align: center;
+    left: 25vw;
+    height: 100%;
+    width: 50vw;
+    margin: 5px;
+  }
+  #content_info {
+    position: absolute;
+    text-align: center;
+    top: 50vh;
+    height: 100%;
+    margin: 5px;
+    width: 90vw;
+  }
+  #input_form {
+    width: 90vw;
+    animation-name: form;
+    animation-duration: 1s;
+  }
+}
